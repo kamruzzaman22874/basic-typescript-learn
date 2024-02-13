@@ -1,5 +1,5 @@
 {
-    // gratter and setter
+    // getter and setter
     class BankAccount {
         readonly id: number;
         public name: string;
@@ -11,18 +11,31 @@
             this._balance = balance;
         }
 
-        addDeposit(amount: number) {
+        set deposit(amount: number) {
             this._balance = this._balance + amount;
         }
 
-        getBalance() {
-            return this._balance;
+        // public addDeposit(amount: number) {
+        //     this._balance = this._balance + amount;
+        // }
+
+        // get modifier 
+        get balance() {
+            return this._balance
         }
+
+        //   public  getBalance() {
+        //         return this._balance;
+        //     }
     }
 
-    const newAccount = new BankAccount(555, "Mr. Smith", 500)
-    newAccount.addDeposit(500)
-    const result = newAccount.getBalance()
-    console.log(result)
+    const newAccount = new BankAccount(555, "Mr. Smith", 200)
+
+    newAccount.deposit = 400;
+    // newAccount.addDeposit(500)
+    // const result = newAccount.getBalance()
+
+    const myBalance = newAccount.balance
+    console.log(myBalance)
     // 
 }
